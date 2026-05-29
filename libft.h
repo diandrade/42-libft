@@ -6,7 +6,7 @@
 /*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 01:33:00 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/27 01:33:01 by diandrade        ###   ########.fr       */
+/*   Updated: 2026/05/27 12:08:54 by diandrade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ void    *ft_memcpy(void *dest, const void *src, size_t n);
 void    *ft_memmove(void *dest, const void *src, size_t n);
 void    *ft_memchr(const void *s, int c, size_t n);
 
+/* --- Conversão de String para Inteiro (<stdlib.h>) --- */
 int ft_atoi(const char *nptr);
+
+/* --- Alocação Dinâmica de Memória --- */
 void    *ft_calloc(size_t nmemb, size_t size);
 char    *ft_strdup(const char *s);
 

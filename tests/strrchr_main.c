@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr_main.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 01:48:20 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/28 22:50:45 by diandrade        ###   ########.fr       */
+/*   Created: 2026/05/27 17:52:58 by diandrade         #+#    #+#             */
+/*   Updated: 2026/05/27 17:52:59 by diandrade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int     ft_isalnum(int c)
+#include <stdio.h>
+int main(void)
 {
-    if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
-    {
-        return (1);
-    }
-    return (0);
+    char    s[] = "bonjour";
+    int c = '\0';
+
+    printf("%d", *ft_strrchr(s, c));
 }

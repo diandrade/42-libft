@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp_main.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 01:48:20 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/28 22:50:45 by diandrade        ###   ########.fr       */
+/*   Created: 2026/05/27 13:38:59 by diandrade         #+#    #+#             */
+/*   Updated: 2026/05/27 15:58:38 by diandrade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-int     ft_isalnum(int c)
+int main(void)
 {
-    if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
-    {
-        return (1);
-    }
-    return (0);
+    char s1[] = "test\200";
+    char s2[] = "test\0";
+
+    printf("%d\n", ft_strncmp(s1, s2, 6));
 }
+
+/*
+else if (arg == 11)
+ft_print_result(ft_strncmp("test\200", "test\0", 6));
+*/
