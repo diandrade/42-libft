@@ -6,7 +6,7 @@
 /*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 01:33:00 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/27 12:08:54 by diandrade        ###   ########.fr       */
+/*   Updated: 2026/05/29 20:04:02 by diandrade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h> 
+# include <stdio.h> // Excluir ao final dos processos
 
 /* --- Verificação e Classificação de Caracteres (<ctype.h>) --- */
 int     ft_isalpha(int c);
