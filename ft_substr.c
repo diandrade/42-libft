@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/03 11:23:28 by diandrade         #+#    #+#             */
-/*   Updated: 2026/06/03 11:49:15 by diandrade        ###   ########.fr       */
+/*   Created: 2026/06/10 14:21:02 by diandrade         #+#    #+#             */
+/*   Updated: 2026/06/10 14:47:27 by diandrade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+char    *ft_substr(char const *s, unsigned int start, size_t len)
 {
+    char    *conv = (char *) s;
+    char    *dst = malloc(ft_strlen(&conv[start + 1]) + 1);
     size_t  i;
-    char    *s_ptr;
+    size_t  j;
 
-    if (!s)
+    j = 0;
+    i = start;
+    while(i < start + len && conv[i])
     {
-        return (NULL);
+        dst[j++] = conv[i++];
     }
 
-    s_ptr = (char *) s;
-
-    i = 0;
-    while(i < n)
-    {
-        if (c == s_ptr[i])
-        {
-            return (void *) &s_ptr[i];
-        }
-        i++;
-    }
-    return (NULL);
+    dst[j] = '\0';
+    return dst;
 }

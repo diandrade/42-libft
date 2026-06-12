@@ -1,47 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/30 01:46:28 by diandrade         #+#    #+#             */
-/*   Updated: 2026/06/03 11:13:26 by diandrade        ###   ########.fr       */
+/*   Created: 2026/06/10 15:53:14 by diandrade         #+#    #+#             */
+/*   Updated: 2026/06/10 16:10:20 by diandrade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
+char    *ft_strjoin(char const *s1, char const *s2)
 {
+    char *ptr_s1 = (char *) s1;
+    char *ptr_s2 = (char *) s2;
+    char *dst = malloc(ft_strlen(ptr_s1) + ft_strlen(ptr_s2) + 1);
     size_t  i;
-    char    *src_ptr;
-    char    *dest_ptr;
+    size_t  j;
 
-    if (!dest && !src)
-    {
-        return (NULL);
-    }
-
-    dest_ptr = (char *)dest;
-    src_ptr = (char *)src;
-    
     i = 0;
-    if (dest_ptr > src_ptr)
+    while (ptr_s1[i])
     {
-        while(n-- > 0)
-        {
-            dest_ptr[n] = src_ptr[n];
-        }   
+        dst[i] = ptr_s1[i];
+        i++;
     }
-    else
+
+    j = i;
+    i = 0;
+    while(ptr_s2[i])
     {
-        while (i < n)
-        {
-            dest_ptr[i] = src_ptr[i];
-            i++;
-        }
+        dst[j++] = ptr_s2[i++];  
     }
-    
-    return (dest);
+
+    dst[j] = '\0';
+
+    return dst;
 }

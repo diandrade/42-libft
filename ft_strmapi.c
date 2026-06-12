@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/03 11:23:28 by diandrade         #+#    #+#             */
-/*   Updated: 2026/06/03 11:49:15 by diandrade        ###   ########.fr       */
+/*   Created: 2026/06/10 11:39:15 by diandrade         #+#    #+#             */
+/*   Updated: 2026/06/10 12:18:34 by diandrade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+    char    *conv = (char *) s;
+    char    *dst = malloc(ft_strlen(conv) + 1);
     size_t  i;
-    char    *s_ptr;
-
-    if (!s)
-    {
-        return (NULL);
-    }
-
-    s_ptr = (char *) s;
 
     i = 0;
-    while(i < n)
+    while(conv[i])
     {
-        if (c == s_ptr[i])
-        {
-            return (void *) &s_ptr[i];
-        }
+        dst[i] = (*f) (i, conv[i]);
         i++;
     }
-    return (NULL);
+    
+    dst[i] = '\0';
+    return dst;
 }

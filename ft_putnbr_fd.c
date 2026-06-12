@@ -1,47 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/30 01:46:28 by diandrade         #+#    #+#             */
-/*   Updated: 2026/06/03 11:13:26 by diandrade        ###   ########.fr       */
+/*   Created: 2026/06/08 19:16:35 by diandrade         #+#    #+#             */
+/*   Updated: 2026/06/08 20:16:22 by diandrade        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
+void    ft_putnbr_fd(int n, int fd)
 {
-    size_t  i;
-    char    *src_ptr;
-    char    *dest_ptr;
+    long  lnb;
 
-    if (!dest && !src)
+    lnb = n;
+
+    if (lnb < 0)
     {
-        return (NULL);
+        lnb = -lnb;
+        ft_putchar_fd('-', fd);
     }
 
-    dest_ptr = (char *)dest;
-    src_ptr = (char *)src;
-    
-    i = 0;
-    if (dest_ptr > src_ptr)
+    if (lnb >= 0 && lnb <= 9)
     {
-        while(n-- > 0)
-        {
-            dest_ptr[n] = src_ptr[n];
-        }   
+        lnb += 48;
+        ft_putchar_fd(lnb, fd);
+        return;
     }
     else
     {
-        while (i < n)
-        {
-            dest_ptr[i] = src_ptr[i];
-            i++;
-        }
+        ft_putnbr_fd(lnb / 10, fd);
+        ft_putnbr_fd(lnb % 10, fd);  
     }
-    
-    return (dest);
 }
