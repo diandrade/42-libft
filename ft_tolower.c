@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 02:00:37 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/27 02:01:06 by diandrade        ###   ########.fr       */
+/*   Created: 2026/05/27 02:00:37 by dieandra         #+#    #+#             */
+/*   Updated: 2026/06/16 16:12:55 by dieandra        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (c >= 65 && c <= 90)
-    {
-        return (c + 32);
-    }
-    return (c);
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }

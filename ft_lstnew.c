@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp_main.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 13:38:59 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/27 15:58:38 by diandrade        ###   ########.fr       */
+/*   Created: 2026/06/15 09:14:56 by dieandra         #+#    #+#             */
+/*   Updated: 2026/06/16 15:47:04 by dieandra        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+t_list	*ft_lstnew(void *content)
 {
-    char s1[] = "test\200";
-    char s2[] = "test\0";
+	t_list	*dst;
 
-    printf("%d\n", ft_strncmp(s1, s2, 6));
+	dst = malloc(sizeof(t_list));
+	if (!dst)
+		return (NULL);
+	dst->content = content;
+	dst->next = NULL;
+	return (dst);
 }
-
-/*
-else if (arg == 11)
-ft_print_result(ft_strncmp("test\200", "test\0", 6));
-*/

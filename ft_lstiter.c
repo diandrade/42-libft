@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr_main.c                                  :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 17:52:58 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/27 17:52:59 by diandrade        ###   ########.fr       */
+/*   Created: 2026/06/16 11:05:15 by dieandra         #+#    #+#             */
+/*   Updated: 2026/06/16 15:46:27 by dieandra        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-int main(void)
-{
-    char    s[] = "bonjour";
-    int c = '\0';
+#include "libft.h"
 
-    printf("%d", *ft_strrchr(s, c));
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

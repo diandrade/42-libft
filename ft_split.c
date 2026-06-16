@@ -3,117 +3,91 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/11 14:02:22 by diandrade         #+#    #+#             */
-/*   Updated: 2026/06/12 11:17:41 by diandrade        ###   ########.fr       */
+/*   Created: 2026/06/11 14:02:22 by dieandra         #+#    #+#             */
+/*   Updated: 2026/06/16 16:26:17 by dieandra        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     count_tokens(char *s, char c)
+static int	count_tokens(char const *s, char c)
 {
-    int is_inside_token;
-    size_t  tokens;
-    size_t  i;
+	int	tokens;
+	int	i;
 
-    i = 0;
-    tokens = 0;
-    while(s[i])
-    {
-        is_inside_token = 0;
-        while(s[i] == c && s[i])
-        {
-            i++;
-        }
-
-        while(s[i] != c && s[i])
-        {
-            is_inside_token = 1;
-            i++;
-        }
-
-        if (is_inside_token == 1)
-        {
-            tokens++;
-        }
-    }
-    return tokens;
+	i = 0;
+	tokens = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
+			tokens++;
+		while (s[i] && s[i] != c)
+			i++;
+	}
+	return (tokens);
 }
 
-char    *create_ptr(char *s, char c, int token)
+static char	*alloc_word(char const *s, int start, int finish)
 {
-    char    *ptr;
-    size_t  tokens;
-    size_t  start;
-    size_t  i;
-    size_t  j;
+	char	*word;
+	int		i;
 
-    i = 0;
-    tokens = 0;
-    while(s[i])
-    {
-        while(s[i] == c && s[i])
-        {
-            i++;
-        }
-
-        if(s[i] != '\0')
-        {
-           tokens++; 
-        }
-
-        if(tokens == (size_t) token)
-        {
-            start = i;
-            while(s[i] != c && s[i])
-            {
-                i++;
-            }
-
-            ptr = malloc(sizeof(char) * (i - start + 1));
-
-            j = 0;
-            while(s[start] != c && s[start])
-            {
-                ptr[j++] = s[start++];
-            }
-            
-            ptr[j] = '\0';
-            return ptr;
-        }
-
-        while(s[i] != c && s[i])
-        {
-            i++;
-        }
-    }
-    return NULL;
+	i = 0;
+	word = malloc((finish - start + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
+	while (start < finish)
+		word[i++] = s[start++];
+	word[i] = '\0';
+	return (word);
 }
 
-char    **ft_split(char const *s, char c)
+static void	*free_split(char **v_ptr, int i)
 {
-    char    **v_ptr;
-    char    *s_ptr;
-    size_t  tokens;
+	while (i > 0)
+		free(v_ptr[--i]);
+	free(v_ptr);
+	return (NULL);
+}
 
-    s_ptr = (char *) s;
-    tokens = count_tokens(s_ptr, c);
-    v_ptr = malloc(sizeof(char  *) * (tokens + 1));
+static char	**fill_split(char **v_ptr, char const *s, char c)
+{
+	int	i;
+	int	j;
+	int	start;
 
-    if (v_ptr == NULL)
-    {
-        return NULL;
-    }
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > start)
+		{
+			v_ptr[j++] = alloc_word(s, start, i);
+			if (!v_ptr[j - 1])
+				return (free_split(v_ptr, j - 1));
+		}
+	}
+	v_ptr[j] = NULL;
+	return (v_ptr);
+}
 
-    v_ptr[tokens] = NULL;
+char	**ft_split(char const *s, char c)
+{
+	char	**v_ptr;
 
-    while(tokens > 0)
-    {
-        v_ptr[tokens - 1] = create_ptr(s_ptr, c, tokens);
-        tokens--;
-    }
-
-    return v_ptr;
+	if (!s)
+		return (NULL);
+	v_ptr = malloc(sizeof(char *) * (count_tokens(s, c) + 1));
+	if (!v_ptr)
+		return (NULL);
+	return (fill_split(v_ptr, s, c));
 }

@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 01:54:29 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/27 02:00:16 by diandrade        ###   ########.fr       */
+/*   Created: 2026/05/27 01:54:29 by dieandra         #+#    #+#             */
+/*   Updated: 2026/06/16 16:13:02 by dieandra        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if (c >= 97 && c <= 122)
-    {
-        return (c - 32);
-    }
-    return (c);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	return (c);
 }

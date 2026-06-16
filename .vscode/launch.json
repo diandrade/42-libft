@@ -2,26 +2,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug C Program",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "gdb",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ],
-      "preLaunchTask": "C/C++: gcc build active file"
-    },
-    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
@@ -29,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": false,
       "cwd": "/home/diandrade/Documents/42SP-libft",
-      "program": "${workspaceFolder}/a.out",
+      "program": "/home/diandrade/Documents/42SP-libft/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

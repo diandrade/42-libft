@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/30 00:05:35 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/30 00:08:58 by diandrade        ###   ########.fr       */
+/*   Created: 2026/05/30 00:05:35 by dieandra         #+#    #+#             */
+/*   Updated: 2026/06/16 15:31:06 by dieandra        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    size_t i;
-    char *str1 = (char *) s;
-    
-    i = 0;
-    while(i < n)
-    {
-        str1[i++] = '\0';
-    }
+	size_t	i;
+	char	*str;
 
-    s = str1;
+	str = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+         #
+#    By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/05/27 01:32:55 by diandrade         #+#    #+#              #
-#    Updated: 2026/06/12 11:28:33 by diandrade        ###   ########.fr        #
+#    Created: 2026/05/27 01:32:55 by dieandra         #+#    #+#              #
+#    Updated: 2026/06/16 16:30:34 by dieandra        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,27 +23,24 @@ SRCS = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 	ft_strjoin.c ft_strtrim.c ft_itoa.c ft_split.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-OBJS = $(SRCS:.c=.o)
-
 BONUS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+SRCS += $(BONUS_SRCS)
+
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

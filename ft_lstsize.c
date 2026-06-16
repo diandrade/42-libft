@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 19:01:09 by dieandra         #+#    #+#             */
-/*   Updated: 2026/06/16 15:50:34 by dieandra        ###   ########.fr       */
+/*   Created: 2026/06/15 11:43:47 by dieandra         #+#    #+#             */
+/*   Updated: 2026/06/16 15:49:04 by dieandra        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_lstsize(t_list *lst)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i])
-		write(fd, &s[i++], 1);
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }

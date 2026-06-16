@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 01:50:43 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/27 01:53:22 by diandrade        ###   ########.fr       */
+/*   Created: 2026/05/27 01:50:43 by dieandra         #+#    #+#             */
+/*   Updated: 2026/06/16 15:37:42 by dieandra        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    if (c >= 32 && c <= 126)
-    {
-        return (1);
-    }
-    return (0);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }

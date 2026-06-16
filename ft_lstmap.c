@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 19:01:09 by dieandra         #+#    #+#             */
-/*   Updated: 2026/06/16 15:50:34 by dieandra        ###   ########.fr       */
+/*   Created: 2026/06/16 12:10:14 by dieandra         #+#    #+#             */
+/*   Updated: 2026/06/16 15:46:55 by dieandra        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
+	t_list	*new_list;
+	t_list	*new_node;
+	void	*content;
 
-	i = 0;
-	while (s[i])
-		write(fd, &s[i++], 1);
+	if (!lst || !f)
+		return (NULL);
+	new_list = NULL;
+	while (lst)
+	{
+		content = f(lst->content);
+		new_node = ft_lstnew(content);
+		if (!new_node)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
+	}
+	return (new_list);
 }

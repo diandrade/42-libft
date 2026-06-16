@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diandrade <diandrade@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dieandra <dieandra@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 01:44:26 by diandrade         #+#    #+#             */
-/*   Updated: 2026/05/27 01:44:28 by diandrade        ###   ########.fr       */
+/*   Created: 2026/05/27 01:44:26 by dieandra         #+#    #+#             */
+/*   Updated: 2026/06/16 15:37:18 by dieandra        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-    {
-        return (1);
-    }
-    return (0);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
